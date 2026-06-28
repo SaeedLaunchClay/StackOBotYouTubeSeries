@@ -1,5 +1,6 @@
 ﻿#include "ImpulseShooter.h"
 #include "ImpulseMissile.h"
+#include "Camera/CameraComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Engine/World.h"
 
@@ -26,10 +27,12 @@ void UImpulseShooter::FireMissile()
 		return;
 	
 	auto SpawnTransform = MissileSpawnPlaceHolder == nullptr ? GetOwner()->GetActorTransform() : MissileSpawnPlaceHolder->GetComponentTransform();
+	auto Camera = Cast<UCameraComponent>(GetOwner()->GetComponentByClass(UCameraComponent::StaticClass()));
 	AImpulseMissile* Missile = GetWorld()->SpawnActor<AImpulseMissile>(ImpulseMissile, SpawnTransform);
 	
+	auto FireDirection = Camera == nullptr ? SpawnTransform.GetRotation().GetForwardVector() : Camera->GetForwardVector();
 	Missile->StaticMeshComponent->SetSimulatePhysics(true);
 	Missile->StaticMeshComponent->SetEnableGravity(true);
-	Missile->StaticMeshComponent->AddImpulse((SpawnTransform.GetRotation().GetForwardVector() * 1000.f), NAME_None, true);
+	Missile->StaticMeshComponent->AddImpulse((FireDirection * ImpulsePower), NAME_None, true);
 }
 

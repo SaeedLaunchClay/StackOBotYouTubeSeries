@@ -74,3 +74,15 @@ Plugins/**/Intermediate/*
 # Cache files for the editor to use
 DerivedDataCache/*
 Plugins
+Content/__ExternalActors__
+Content/__ExternalObjects__
+Content/DevCom
+Content/Splash
+Content/StackOBot/_Ignore
+Content/StackOBot/AI
+Content/StackOBot/Audio
+Content/StackOBot/Characters
+Content/StackOBot/Environment
+Content/StackOBot/UI
+Content/StackOBot/Maps
+Content/StackOBot/FX

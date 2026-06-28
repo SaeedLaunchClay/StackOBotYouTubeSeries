@@ -30,4 +30,7 @@ public:
 	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="Missile")
 	USceneComponent* MissileSpawnPlaceHolder;
+	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="Missile")
+	float ImpulsePower = 5000.0f;
 };
