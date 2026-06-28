@@ -8,8 +8,6 @@ public class StackOBotYoutubeTarget : TargetRules
 	public StackOBotYoutubeTarget(TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Game;
-		BuildEnvironment = TargetBuildEnvironment.Unique;
-
 		ExtraModuleNames.AddRange( new string[] { "StackOBotYoutube" } );
 	}
 }
